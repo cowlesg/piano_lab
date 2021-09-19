@@ -12,9 +12,17 @@
 using std::cout;
 using std::endl;
 
+
 /* given helper functions and variables */
 enum Note { na = 0, d0 = 1, re = 2, mi = 3, fa = 4, sol = 5, la = 6, ti = 7};
 std::string notes_str[] = {"empty", "do", "re", "mi", "fa", "sol", "la", "ti"};
+
+// this is the wait condition
+Note current_note = na;
+mutex conductorMutex;
+mutex noteMutex;
+cv conductorCV;
+cv pianoCV;
 
 void play(Note i){
     assert(i != na);
@@ -26,6 +34,14 @@ void play(Note i){
 
 void conductor(){
     std::ifstream infile("input.txt");
+    //reads from filestream
+    int note;
+    while (infile >> note) {
+
+
+    } 
+    // play the notes coming in
+    // ensure you are not playing the same note at the same time
     /* implement here */
 }
 
